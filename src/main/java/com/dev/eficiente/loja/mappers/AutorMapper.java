@@ -10,11 +10,11 @@ public class AutorMapper {
     }
 
     public static Autor toDomain(AutorDTO dto) {
-        return new Autor(null, dto.getName(), dto.getEmail(), dto.getDescription(), dto.getCreatedAt());
+        return new Autor(null, dto.getName(), dto.getEmail(), dto.getDescription());
 
     }
 
     public static AutorDTO fromDomain(Autor autor) {
-        return new AutorDTO(autor.getName(), autor.getEmail(), autor.getDescription(), autor.getCreatedAt());
+        return new AutorDTO(autor.getName(), autor.getEmail(), autor.getDescription());
     }
 }

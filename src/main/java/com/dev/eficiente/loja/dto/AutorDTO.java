@@ -1,21 +1,22 @@
 package com.dev.eficiente.loja.dto;
 
-import java.time.LocalDateTime;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 public class AutorDTO {
+    @NotBlank
+    @Size(max = 100)
     private final String name;
-
+    @Email
     private final String email;
-
+    @Size(max = 400)
     private final String description;
 
-    private final LocalDateTime createdAt;
-
-    public AutorDTO(String name, String email, String description, LocalDateTime createdAt) {
+    public AutorDTO(String name, String email, String description) {
         this.name = name;
         this.email = email;
         this.description = description;
-        this.createdAt = createdAt;
     }
 
     public String getName() {
@@ -28,9 +29,5 @@ public class AutorDTO {
 
     public String getDescription() {
         return description;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
     }
 }
