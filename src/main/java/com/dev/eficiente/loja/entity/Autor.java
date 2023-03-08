@@ -19,6 +19,7 @@ public class Autor {
     @Size(max = 100)
     private String name;
     @Email
+    @Column(unique = true)
     @Size(max = 100)
     private String email;
     @NotBlank
@@ -27,8 +28,7 @@ public class Autor {
     @CreationTimestamp
     private Timestamp createdAt;
 
-    public Autor(Long id, String name, String email, String description) {
-        this.id = id;
+    public Autor( String name, String email, String description) {
         this.name = name;
         this.email = email;
         this.description = description;

@@ -10,7 +10,7 @@ public class AutorMapper {
     }
 
     public static Autor toDomain(AutorDTO dto) {
-        return new Autor(null, dto.getName(), dto.getEmail(), dto.getDescription());
+        return new Autor(dto.getName(), dto.getEmail(), dto.getDescription());
 
     }
 

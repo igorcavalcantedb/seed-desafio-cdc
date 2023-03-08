@@ -22,6 +22,7 @@ public class AutorResource {
     public AutorResource(AutorRepository autorRepository) {
         this.autorRepository = autorRepository;
     }
+
     @PostMapping
     public ResponseEntity<AutorDTO> saveAutor(@Valid @RequestBody AutorDTO autorDTO){
 
