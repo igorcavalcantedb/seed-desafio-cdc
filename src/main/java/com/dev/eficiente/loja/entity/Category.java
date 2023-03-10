@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Categoria {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -15,14 +15,18 @@ public class Categoria {
     private String description;
 
     @Deprecated
-    public Categoria() {
+    public Category() {
     }
 
-    public Categoria(String name) {
+    public Category(Long id) {
+        this.id = id;
+    }
+
+    public Category(String name) {
         this(name,"");
     }
 
-    public Categoria(String name, String description) {
+    public Category(String name, String description) {
         this.name = name;
         this.description = description;
     }

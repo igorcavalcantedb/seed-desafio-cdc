@@ -1,15 +1,15 @@
 package com.dev.eficiente.loja.dto;
 
-import com.dev.eficiente.loja.entity.Categoria;
+import com.dev.eficiente.loja.entity.Category;
 
-public class CategoriaDTO {
+public class CategoryDTO {
 
     private final String name;
     private final String description;
 
 
 
-    public CategoriaDTO(String name, String descricao) {
+    public CategoryDTO(String name, String descricao) {
         this.name = name;
         this.description = descricao;
     }
@@ -22,10 +22,10 @@ public class CategoriaDTO {
         return description;
     }
 
-    public Categoria toDomain(){
+    public Category toDomain(){
         if(this.description.isBlank()){
-            return new Categoria(this.getName());
+            return new Category(this.getName());
         }
-        return new Categoria(this.getName(),this.description);
+        return new Category(this.getName(),this.description);
     }
 }

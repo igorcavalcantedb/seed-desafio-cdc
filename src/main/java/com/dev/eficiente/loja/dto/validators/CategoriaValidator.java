@@ -1,6 +1,6 @@
 package com.dev.eficiente.loja.dto.validators;
 
-import com.dev.eficiente.loja.dto.CategoriaDTO;
+import com.dev.eficiente.loja.dto.CategoryDTO;
 import com.dev.eficiente.loja.repository.CategoriaRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -17,7 +17,7 @@ public class CategoriaValidator implements Validator {
 
     @Override
     public boolean supports(Class<?> clazz) {
-        return CategoriaDTO.class.isAssignableFrom(clazz);
+        return CategoryDTO.class.isAssignableFrom(clazz);
     }
 
     @Override
@@ -25,8 +25,8 @@ public class CategoriaValidator implements Validator {
         if (errors.hasErrors()) {
             return;
         }
-        CategoriaDTO categoriaDTO = (CategoriaDTO) target;
-        var optionalCategoria = categoriaRepository.findByName(categoriaDTO.getName());
+        CategoryDTO categoryDTO = (CategoryDTO) target;
+        var optionalCategoria = categoriaRepository.findByName(categoryDTO.getName());
         if (!optionalCategoria.isEmpty()) {
             errors.rejectValue("name", "402", "Nome já existente");
         }

@@ -24,13 +24,37 @@ public class Book {
     private int pages;
     @NotBlank
     private String isbn;
-    @NotNull
     @Future
     private LocalDate release;
     @NotNull
-    private Categoria categoria;
+    @ManyToOne
+    private Category category;
     @NotNull
+    @ManyToOne
     private Autor autor;
+    @Deprecated
+    public Book() {}
+
+    public Book(String title, String resume, BigDecimal price, int pages, String isbn, LocalDate release, Category category, Autor autor) {
+        this.title = title;
+        this.resume = resume;
+        this.price = price;
+        this.pages = pages;
+        this.isbn = isbn;
+        this.release = release;
+        this.category = category;
+        this.autor = autor;
+    }
+
+    public Book(String title, String resume, BigDecimal price, int pages, String isbn, Category category, Autor autor) {
+        new Book(title, resume, price, pages, isbn,null, category,autor);
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+
 
     public String getTitle() {
         return title;
@@ -56,8 +80,8 @@ public class Book {
         return release;
     }
 
-    public Categoria getCategoria() {
-        return categoria;
+    public Category getCategory() {
+        return category;
     }
 
     public Autor getAutor() {

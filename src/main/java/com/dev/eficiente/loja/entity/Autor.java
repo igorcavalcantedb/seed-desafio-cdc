@@ -28,10 +28,22 @@ public class Autor {
     @CreationTimestamp
     private Timestamp createdAt;
 
-    public Autor( String name, String email, String description) {
+    @Deprecated
+    public Autor() {
+    }
+
+    public Autor(String name, String email, String description) {
         this.name = name;
         this.email = email;
         this.description = description;
+    }
+
+    public Autor(String email) {
+        this.email = email;
+    }
+
+    public Autor(Long id) {
+        this.id = id;
     }
 
     public Long getId() {

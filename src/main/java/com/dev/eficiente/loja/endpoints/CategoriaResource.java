@@ -1,6 +1,6 @@
 package com.dev.eficiente.loja.endpoints;
 
-import com.dev.eficiente.loja.dto.CategoriaDTO;
+import com.dev.eficiente.loja.dto.CategoryDTO;
 import com.dev.eficiente.loja.dto.validators.CategoriaValidator;
 import com.dev.eficiente.loja.repository.CategoriaRepository;
 import org.springframework.http.HttpStatus;
@@ -29,10 +29,10 @@ public class CategoriaResource {
     }
 
     @PostMapping
-    public ResponseEntity<CategoriaDTO> saveCategory(@Valid @RequestBody CategoriaDTO categoriaDTO){
+    public ResponseEntity<CategoryDTO> saveCategory(@Valid @RequestBody CategoryDTO categoryDTO){
 
-        repository.save(categoriaDTO.toDomain());
-        return ResponseEntity.status(HttpStatus.CREATED).body(categoriaDTO);
+        repository.save(categoryDTO.toDomain());
+        return ResponseEntity.status(HttpStatus.CREATED).body(categoryDTO);
     }
     @GetMapping
     public String getTest(){
